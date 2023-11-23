@@ -70,6 +70,9 @@ void defensiveAutonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+  Brain.Screen.newLine();
+  Brain.Screen.print("Ready for user controll");
+
   while (1) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
