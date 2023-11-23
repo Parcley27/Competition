@@ -7,6 +7,9 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
+// Choose autonomous mode (defend or attack)
+const bool autonomousIsOffensive = true;
+
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
@@ -47,10 +50,12 @@ void pre_auton(void) {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void autonomous(void) {
-  // ..........................................................................
-  // Insert autonomous user code here.
-  // ..........................................................................
+void offensiveAutonomous(void) {
+  // Offensive Autonomous code here
+}
+
+void defensiveAutonomous(void) {
+  // Defensive Autonomous code here
 }
 
 /*---------------------------------------------------------------------------*/
@@ -85,7 +90,15 @@ void usercontrol(void) {
 //
 int main() {
   // Set up callbacks for autonomous and driver control periods.
-  Competition.autonomous(autonomous);
+
+  if (autonomousIsOffensive == true) {
+    // Run offensive auton.
+    Competition.autonomous(offensiveAutonomous);
+  } else if (autonomousIsOffensive == false) {
+    // Run defensive auton.
+    Competition.autonomous(defensiveAutonomous);
+  }
+
   Competition.drivercontrol(usercontrol);
 
   // Run the pre-autonomous function.
