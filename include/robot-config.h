@@ -8,6 +8,8 @@ extern smartdrive robotDrive;
 extern motor arm;
 extern motor intake;
 
+extern controller mainController;
+
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  *

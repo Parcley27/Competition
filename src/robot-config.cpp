@@ -17,7 +17,7 @@ smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 
 motor arm = motor(PORT3, ratio18_1, false);
 
 // Intake
-motor intake = motor(PORT4, ratio18_1, false);
+motor intake = motor(PORT8, ratio18_1, false);
 
 // Controller
 controller mainController = controller(primary);
@@ -38,10 +38,12 @@ void vexcodeInit(void) {
   Brain.Screen.newLine();
   Brain.Screen.print("Calibrating Interial Sensor...");
   robotInertial.calibrate();
+
   // Budget thread pause
   while (robotInertial.isCalibrating()) {
     // Wait
   }
+
   Brain.Screen.newLine();
   Brain.Screen.print("Inertial Sensor Calibrated");
   Brain.Screen.newLine();
@@ -49,8 +51,10 @@ void vexcodeInit(void) {
   // Set drivetrain profiles
   Brain.Screen.newLine();
   Brain.Screen.print("Setting Drivetrain Profiles...");
-  robotDrive.setDriveVelocity(100, percent);
+
+  robotDrive.setDriveVelocity(75, percent);
   robotDrive.setTurnVelocity(50, percent);
+
   Brain.Screen.newLine();
   Brain.Screen.print("Drivetrain Ready");
   Brain.Screen.newLine();
@@ -58,8 +62,15 @@ void vexcodeInit(void) {
   // Set motor profiles
   Brain.Screen.newLine();
   Brain.Screen.print("Setting Motor Profiles...");
+
   arm.setVelocity(100, percent);
+  arm.setReversed(false);
+  arm.setStopping(brake);
+
   intake.setVelocity(100, percent);
+  intake.setReversed(false);
+  intake.setStopping(brake);
+
   Brain.Screen.newLine();
   Brain.Screen.print("Motors Ready");
   Brain.Screen.newLine();

@@ -83,6 +83,32 @@ void usercontrol(void) {
     // update your motors, etc.
     // ........................................................................
 
+    if (mainController.ButtonR1.pressing()) {
+      // Pull ball in
+      intake.spin(forward);
+
+    } else if (mainController.ButtonR2.pressing()) {
+      // Push ball out
+      intake.spin(reverse);
+
+    } else {
+      // Stop motor
+      intake.stop();
+    }
+
+    if (mainController.ButtonL1.pressing()) {
+      // Move arm up
+      arm.spin(forward);
+
+    } else if (mainController.ButtonL2.pressing()) {
+      // Move arm down
+      arm.spin(reverse);
+
+    } else {
+      // Stop motor
+      arm.stop();
+    }
+
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
