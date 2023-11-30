@@ -78,11 +78,7 @@ void usercontrol(void) {
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
 
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
-
+    // Tribal intake
     if (mainController.ButtonR1.pressing()) {
       // Pull ball in
       intake.spin(forward);
@@ -96,6 +92,7 @@ void usercontrol(void) {
       intake.stop();
     }
 
+    // Intake arm
     if (mainController.ButtonL1.pressing()) {
       // Move arm up
       arm.spin(forward);
@@ -108,6 +105,44 @@ void usercontrol(void) {
       // Stop motor
       arm.stop();
     }
+
+    // Drivetrain controller
+    // Refer to block battle car code. Remember to leave easy joystick cusomization
+    // https://github.com/Parcley27/Arduino-Block-Battle/blob/main/Car_Software.ino#L229
+
+    /* Input key
+    .Axis1 == Left/Right on Right
+    .Axis2 == Up/Down on Right
+
+    .Axis3 == Up/Down on Left
+    .Axis4 == LeftRight on Left
+    */
+
+    // Set turning streangth. Lower value == less turning
+    int turnStreangth = 100;
+
+    // Get controller axis measurements
+    int yAxis = mainController.Axis3.position();
+    int xAxis = mainController.Axis1.position();
+
+    // Set motor and turn speeds
+    int motorSpeed = yAxis;
+    int turnSpeed = xAxis;
+
+    // Turn speed modifier
+    turnSpeed = turnSpeed * turnStreangth / 100;
+
+    // Find motor speeds
+    double leftSideSpeed = motorSpeed + turnSpeed;
+    double rightSideSpeed = motorSpeed - turnSpeed;
+
+    // Set motor velocities
+    leftMotor.setVelocity(leftSideSpeed, pct);
+    rightMotor.setVelocity(rightSideSpeed, pct);
+
+    // Turn on motors
+    leftMotor.spin(fwd);
+    rightMotor.spin(fwd);
 
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.

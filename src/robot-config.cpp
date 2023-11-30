@@ -55,6 +55,9 @@ void vexcodeInit(void) {
   robotDrive.setDriveVelocity(75, percent);
   robotDrive.setTurnVelocity(50, percent);
 
+  leftMotor.setStopping(brake);
+  rightMotor.setStopping(brake);
+
   Brain.Screen.newLine();
   Brain.Screen.print("Drivetrain Ready");
   Brain.Screen.newLine();
