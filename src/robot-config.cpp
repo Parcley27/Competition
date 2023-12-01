@@ -17,7 +17,7 @@ smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 
 motor arm = motor(PORT3, ratio18_1, false);
 
 // Intake
-motor intake = motor(PORT8, ratio18_1, false);
+motor intake = motor(PORT4, ratio18_1, false);
 
 // Controller
 controller mainController = controller(primary);
