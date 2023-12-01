@@ -118,7 +118,8 @@ void usercontrol(void) {
     .Axis4 == LeftRight on Left
     */
 
-    // Set turning streangth. Lower value == less turning
+    // Motor speed and turining modifiers
+    int speedModifier = 100;
     int turnStreangth = 100;
 
     // Get controller axis measurements
@@ -129,7 +130,8 @@ void usercontrol(void) {
     int motorSpeed = yAxis;
     int turnSpeed = xAxis;
 
-    // Turn speed modifier
+    // Modify speeds
+    motorSpeed = motorSpeed * speedModifier / 100;
     turnSpeed = turnSpeed * turnStreangth / 100;
 
     // Find motor speeds
