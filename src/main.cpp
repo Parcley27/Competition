@@ -70,8 +70,11 @@ void defensiveAutonomous(void) {
 
 void usercontrol(void) {
   // User control code here, inside the loop
+
+  /*
   Brain.Screen.newLine();
   Brain.Screen.print("Ready for user controll");
+  */
 
   while (1) {
     // This is the main execution loop for the user control program.
@@ -120,7 +123,7 @@ void usercontrol(void) {
 
     // Motor speed and turining modifiers
     int speedModifier = 100;
-    int turnStreangth = 100;
+    int turnStrength = 100;
 
     // Get controller axis measurements
     int yAxis = mainController.Axis3.position();
@@ -132,7 +135,7 @@ void usercontrol(void) {
 
     // Modify speeds
     motorSpeed = motorSpeed * speedModifier / 100;
-    turnSpeed = turnSpeed * turnStreangth / 100;
+    turnSpeed = turnSpeed * turnStrength / 100;
 
     // Find motor speeds
     double leftSideSpeed = motorSpeed + turnSpeed;
