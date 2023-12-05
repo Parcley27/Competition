@@ -9,7 +9,7 @@ brain Brain;
 motor leftMotor = motor(PORT1, ratio18_1, false);
 motor rightMotor = motor(PORT2, ratio18_1, true);
 
-inertial robotInertial = inertial(PORT10);
+inertial robotInertial = inertial(PORT12);
 
 smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 320, 40, mm, 1);
 
@@ -17,7 +17,7 @@ smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 
 //motor arm = motor(PORT3, ratio18_1, false);
 
 // Intake
-motor intake = motor(PORT4, ratio18_1, false);
+motor intake = motor(PORT3, ratio18_1, false);
 
 // Controller
 controller mainController = controller(primary);
