@@ -95,7 +95,8 @@ void usercontrol(void) {
       intake.stop();
     }
 
-    // Intake arm
+    /* Not used
+    // Arm motor
     if (mainController.ButtonL1.pressing()) {
       // Move arm up
       arm.spin(forward);
@@ -108,6 +109,7 @@ void usercontrol(void) {
       // Stop motor
       arm.stop();
     }
+    */
 
     // Drivetrain controller
     // Refer to block battle car code. Remember to leave easy joystick cusomization

@@ -14,7 +14,7 @@ inertial robotInertial = inertial(PORT10);
 smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 320, 40, mm, 1);
 
 // Arm
-motor arm = motor(PORT3, ratio18_1, false);
+//motor arm = motor(PORT3, ratio18_1, false);
 
 // Intake
 motor intake = motor(PORT4, ratio18_1, false);
@@ -66,9 +66,11 @@ void vexcodeInit(void) {
   Brain.Screen.newLine();
   Brain.Screen.print("Setting Motor Profiles...");
 
+  /* Block out arm because it is not being used any more
   arm.setVelocity(100, percent);
   arm.setReversed(false);
   arm.setStopping(brake);
+  */
 
   intake.setVelocity(100, percent);
   intake.setReversed(false);

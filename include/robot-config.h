@@ -11,7 +11,7 @@ extern motor leftMotor;
 extern motor rightMotor;
 
 // Include other motors for main.cpp
-extern motor arm;
+//extern motor arm;
 extern motor intake;
 
 extern controller mainController;
