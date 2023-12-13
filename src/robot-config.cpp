@@ -11,7 +11,7 @@ motor rightMotor = motor(PORT2, ratio18_1, true);
 
 inertial robotInertial = inertial(PORT12);
 
-smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 320, 40, mm, 1);
+smartdrive robotDrive = smartdrive(leftMotor, rightMotor, robotInertial, 319.9, 320, 280, mm, 1);
 
 // Arm
 //motor arm = motor(PORT3, ratio18_1, false);

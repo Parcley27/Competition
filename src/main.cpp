@@ -8,7 +8,7 @@
 /*----------------------------------------------------------------------------*/
 
 // Choose autonomous mode (defend or attack)
-const bool autonomousIsOffensive = true;
+const bool autonomousIsOffensive = false;
 
 // ---- START VEXCODE CONFIGURED DEVICES ----
 // ---- END VEXCODE CONFIGURED DEVICES ----
@@ -56,6 +56,11 @@ void offensiveAutonomous(void) {
 
 void defensiveAutonomous(void) {
   // Defensive Autonomous code here
+  robotDrive.setDriveVelocity(100.0, pct);
+  robotDrive.setTurnVelocity(100.0, pct);
+  
+  robotDrive.driveFor(110, distanceUnits::cm);
+  robotDrive.turnToRotation(90.0, rotationUnits::deg);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -80,6 +85,14 @@ void usercontrol(void) {
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
+
+    if (mainController.ButtonY.pressing()) {
+      defensiveAutonomous();
+    }
+
+    if (mainController.ButtonA.pressing()) {
+      offensiveAutonomous();
+    }
 
     // Tribal intake
     if (mainController.ButtonR1.pressing()) {
