@@ -86,14 +86,6 @@ void usercontrol(void) {
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
 
-    if (mainController.ButtonY.pressing()) {
-      defensiveAutonomous();
-    }
-
-    if (mainController.ButtonA.pressing()) {
-      offensiveAutonomous();
-    }
-
     // Tribal intake
     if (mainController.ButtonR1.pressing()) {
       // Pull ball in
