@@ -59,8 +59,28 @@ void defensiveAutonomous(void) {
   robotDrive.setDriveVelocity(100.0, pct);
   robotDrive.setTurnVelocity(100.0, pct);
   
-  robotDrive.driveFor(110, distanceUnits::cm);
-  robotDrive.turnToRotation(90.0, rotationUnits::deg);
+  // Drive to middle and turn
+  robotDrive.driveFor(130, distanceUnits::cm);
+  robotDrive.turnToHeading(-90.0, rotationUnits::deg);
+
+  // Score ball
+  intake.spin(reverse);
+  robotDrive.setDriveVelocity(10.0, pct);
+  robotDrive.driveFor(10.0, distanceUnits::cm);
+  robotDrive.setDriveVelocity(100.0, pct);
+  robotDrive.driveFor(-20.0, distanceUnits::cm);
+  intake.stop();
+
+  // Turn around and grab new ball
+  robotDrive.turnToHeading(90.0, rotationUnits::deg);
+  intake.spin(forward);
+  robotDrive.driveFor(20.0, distanceUnits::cm);
+  robotDrive.turnToHeading(-90.0, rotationUnits::deg);
+  robotDrive.driveFor(40.0, distanceUnits::cm);
+  intake.spin(reverse);
+  robotDrive.driveFor(-20.0, distanceUnits::cm);
+  intake.stop();
+
 }
 
 /*---------------------------------------------------------------------------*/
