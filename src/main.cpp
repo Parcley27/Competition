@@ -152,6 +152,7 @@ void usercontrol(void) {
     int speedModifier = 100;
     int turnStrength = 100;
 
+
     // Get controller axis measurements
     int yAxis = mainController.Axis3.position();
     int xAxis = mainController.Axis1.position();
@@ -159,6 +160,8 @@ void usercontrol(void) {
     // Set motor and turn speeds
     int motorSpeed = yAxis;
     int turnSpeed = xAxis;
+
+    turnStrength = turnStrength - (motorSpeed / 2);
 
     // Modify speeds
     motorSpeed = motorSpeed * speedModifier / 100;
