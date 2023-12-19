@@ -67,6 +67,8 @@ void defensiveAutonomous(void) {
   intake.spin(reverse);
   robotDrive.setDriveVelocity(10.0, pct);
   robotDrive.driveFor(10.0, distanceUnits::cm);
+  robotDrive.drive(forward);
+  wait(1.5, timeUnits::sec);
   robotDrive.setDriveVelocity(100.0, pct);
   robotDrive.driveFor(-20.0, distanceUnits::cm);
   intake.stop();
@@ -152,7 +154,6 @@ void usercontrol(void) {
     int speedModifier = 100;
     int turnStrength = 100;
 
-
     // Get controller axis measurements
     int yAxis = mainController.Axis3.position();
     int xAxis = mainController.Axis1.position();
@@ -161,6 +162,7 @@ void usercontrol(void) {
     int motorSpeed = yAxis;
     int turnSpeed = xAxis;
 
+    // Decrease turn strength based on current speed
     turnStrength = turnStrength - (motorSpeed / 2);
 
     // Modify speeds
