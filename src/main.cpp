@@ -60,7 +60,7 @@ void defensiveAutonomous(void) {
   robotDrive.setTurnVelocity(100.0, pct);
   
   // Drive to middle and turn
-  robotDrive.driveFor(130, distanceUnits::cm);
+  robotDrive.driveFor(95, distanceUnits::cm);
   robotDrive.turnToHeading(-90.0, rotationUnits::deg);
 
   // Score ball
