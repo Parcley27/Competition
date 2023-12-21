@@ -55,6 +55,11 @@ void offensiveAutonomous(void) {
 }
 
 void defensiveAutonomous(void) {
+  // Stop all motors just in case
+  intake.stop();
+  leftMotor.stop();
+  rightMotor.stop();
+
   // Defensive Autonomous code here
   robotDrive.setDriveVelocity(100.0, pct);
   robotDrive.setTurnVelocity(100.0, pct);
